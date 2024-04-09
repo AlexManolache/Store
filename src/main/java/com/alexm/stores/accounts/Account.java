@@ -24,16 +24,19 @@ public class Account {
 	
 	@Nonnull
 	private LocalDate createdAccount;
-
-    private Set<Role> roles;
+	
+	
+    private String roles;
 	
 	
 	protected Account() {}
 
-	public Account(String username, LocalDate createdAccount) {
+	public Account(int id, String username, LocalDate createdAccount, Role roles) {
 		super();
+		this.id = id;
 		this.username = username;
-		this.createdAccount = LocalDate.now();
+		this.createdAccount = createdAccount;
+		this.roles = roles.getRole();
 	}
 
 	public int getId() {
@@ -56,19 +59,20 @@ public class Account {
 		this.createdAccount = createdAccount;
 	}
 
-	public Set<Role> getRoles() {
+
+	public String getRoles() {
 		return roles;
 	}
 
-	public void setRoles(Set<Role> roles) {
-		this.roles = roles;
-	}
 
 	@Override
 	public String toString() {
 		return "Account [id=" + id + ", username=" + username + ", createdAccount=" + createdAccount + ", roles="
 				+ roles + "]";
 	}
+
+	
+
 
 	
 
